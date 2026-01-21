@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="th">
 <head>
     <meta charset="UTF-8">
@@ -6,33 +6,42 @@
     <title>Portfolio Chef Suwijak Sopana</title>
     
     <style>
-        /* --- 1. การตั้งค่าพื้นฐาน --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Sarabun', sans-serif;
+        /* --- 1. การตั้งค่าพื้นฐาน --- */ /* <!DOCTYPE html> = บอกเบราว์เซอร์ว่านี่คือเว็บแบบไหน
+                                         เริ่มต้นเว็บทั้งหน้า
+                                           lang="th" = บอกว่าเว็บนี้ใช้ภาษาไทย
+                                           <head> = ส่วนนี้ ไม่โชว์บนหน้าจอ แต่เอาไว้บอกข้อมูลให้เบราว์เซอร์รู้
+                                            <meta charset="UTF-8"> = บอกว่าเว็บนี้ใช้ตัวอักษรสาก → เพื่อให้ ภาษาไทยไม่กลายเป็นภาษาต่างดาว
+                                            <meta name="viewport" content="width=device-width, initial-scale=1.0"> = บอกว่า
+                                            “เว็บนี้แสดงผลให้พอดีกับมือถือ แท็บเล็ต คอมด้วยนะ” 
+                                            <title>Portfolio Chef Suwijak Sopana</title> = ชื่อเว็บ จะไปโผล่บน แท็บเบราว์เซอร์ด้านบน
+                                            <style> = เริ่มเขียน กฎการแต่งเว็บ เช่น สี ตัวอักษร ระยะห่าง*/
+                                            
+        * { /* = ทุกอย่างในเว็บ*/
+            margin: 0; /*ไม่เว้นขอบนอก*/
+            padding: 0; /*ไม่เว้นขอบใน*/
+            box-sizing: border-box; /*คิดขนาดกล่องแบบไม่เพี้ยน*/
+            font-family: 'Sarabun', sans-serif; /*ใช้ฟอนต์ Sarabun ทั้งเว็บ*/
         }
 
-        body {
-            line-height: 1.6;
-            color: #333;
-            background-color: #ffffff;
+        body { /*ตัวเว็บทั้งหมด*/
+            line-height: 1.6; /*ตัวอักษรอ่านง่าย*/
+            color: #333; /*สีเทาเข้ม*/
+            background-color: #ffffff; /*พื้นหลังสีขาว*/
         }
 
         /* --- 2. เมนูนำทาง (Navigation) --- */
         nav {
             background: #155620; /* สีเขียวเข้ม */
-            padding: 1rem;
-            position: sticky;
-            top: 0;
+            padding: 1rem; /*เลื่อนเว็บแล้ว เมนูไม่หาย*/
+            position: sticky; /*เลื่อนเว็บแล้ว เมนูไม่หาย*/
+            top: 0; /*ติดอยู่ด้านบน*/
             z-index: 1000;
             text-align: center;
         }
-
+            /*ลิงก์ในเมนู*/
         nav a {
-            color: white;
-            text-decoration: none;
+            color: white; /*ตัวอักษรสีขาว*/
+            text-decoration: none; /*ไม่มีขีดเส้นใต้*/
             margin: 0 15px;
             font-weight: bold;
         }
@@ -43,23 +52,23 @@
 
         /* --- 3. หน้าแรก (Home Section) --- */
         #home {
-            height: 100vh;
+            height: 100vh; /*หน้าแรกสูงเต็มจอ*/
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             /* พื้นหลัง: ไล่แสงขาวจากตรงกลางไปเขียวสด ซ้อนทับบนรูปภาพ ChatGPT.png */
-            background-image: 
+            background-image:/*พื้นหลัง: มีไล่แสง */
                 radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(46, 125, 50, 0.8) 70%, rgba(21, 86, 32, 0.95) 100%),
-                url('image/background/ChatGPT.png'); 
+                url('image/background/ChatGPT.png'); /*พื้นหลัง:มีไล่แสง*/
             background-size: cover;
             background-position: center;
             color: white;
         }
 
         /* รูปโปรไฟล์หน้าแรก (วงกลม อยู่บนข้อความ) */
-        .home-profile-img {
+        .home-profile-img { /*ทำรูปโปรไฟล์ให้ เป็นวงกลม*/
             width: 200px;
             height: 200px;
             border-radius: 50%;
@@ -81,14 +90,14 @@
 
         /* --- 4. ส่วนเนื้อหาทั่วไป (Section) --- */
         section {
-            padding: 80px 20px;
+            padding: 80px 20px; /*เว้นขอบให้เนื้อหาดูโล่ง อ่านง่าย*/
             max-width: 1100px;
             margin: 0 auto;
         }
 
-        h2 {
-            text-align: center;
-            margin-bottom: 40px;
+        h2 { /*หัวข้อใหญ่*/
+            text-align: center; /*อยู่ตรงกลาง*/
+            margin-bottom: 40px; /*มีเส้นใต้สีทอง*/
             color: #155620;
             border-bottom: 3px solid #f1c40f;
             display: inline-block;
@@ -99,7 +108,7 @@
         }
 
         /* --- 5. เกี่ยวกับฉัน (About Section - รูปซ้าย ข้อความขวา) --- */
-        .about-content {
+        .about-content { /*รูปโปรไฟล์ทรงกลม*/
             display: flex;
             align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
             gap: 40px; /* ระยะห่างระหว่างรูปกับข้อความ */
@@ -136,7 +145,7 @@
         }
 
         .skill-tag {
-            background: #e8f5e9;
+            background: #e8f5e9; /*ทำทักษะเป็น ป้ายมน ๆ น่ารัก*/
             color: #155620;
             padding: 10px 20px;
             border-radius: 25px;
@@ -146,7 +155,7 @@
 
         /* --- 7. การ์ด (การศึกษา/ประสบการณ์) --- */
         .card-container {
-            display: grid;
+            display: grid; /*กล่องลอย มีเงา ดูเป็นมืออาชีพ*/
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
@@ -177,13 +186,13 @@
             transition: 0.3s;
         }
 
-        .portfolio-item:hover { transform: translateY(-5px); }
+        .portfolio-item:hover { transform: translateY(-5px); } /*เอาเมาส์ชี้แล้ว การ์ดลอยขึ้นนิดนึง */
         .portfolio-item img { width: 100%; height: 200px; object-fit: cover; }
         .portfolio-info { padding: 15px; }
 
         /* --- 9. ส่วนท้าย (Footer) --- */
         footer {
-            background: #155620;
+            background: #155620; /*แถบล่างสีเขียว ตัวอักษรขาว*/
             color: white;
             text-align: center;
             padding: 40px 20px;
@@ -191,7 +200,7 @@
         }
     </style>
 </head>
-<body>
+<body> 
 
     <nav>
         <a href="#home">หน้าแรก</a>
