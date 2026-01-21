@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio chef suwijak sopana</title>
+    <title>Portfolio Chef Suwijak Sopana</title>
     
     <style>
-        /* ตั้งค่าพื้นฐานและฟอนต์ */
+        /* --- 1. การตั้งค่าพื้นฐาน --- */
         * {
             margin: 0;
             padding: 0;
@@ -17,11 +17,12 @@
         body {
             line-height: 1.6;
             color: #333;
+            background-color: #ffffff;
         }
 
-        /* --- ส่วนเมนูนำทาง  --- */
+        /* --- 2. เมนูนำทาง (Navigation) --- */
         nav {
-            background: #155620;
+            background: #155620; /* สีเขียวเข้ม */
             padding: 1rem;
             position: sticky;
             top: 0;
@@ -30,109 +31,120 @@
         }
 
         nav a {
-            color: rgb(255, 255, 255);
+            color: white;
             text-decoration: none;
             margin: 0 15px;
             font-weight: bold;
         }
 
         nav a:hover {
-            color: #f1c40f; /* เปลี่ยนสีเมื่อเอาเมาส์ชี้ */
+            color: #f1c40f; /* สีเหลืองทองเมื่อชี้ */
         }
 
-        /* --- การตั้งค่า Section ทั่วไป --- */
+        /* --- 3. หน้าแรก (Home Section) --- */
+        #home {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* พื้นหลัง: ไล่แสงขาวจากตรงกลางไปเขียวสด ซ้อนทับบนรูปภาพ ChatGPT.png */
+            background-image: 
+                radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(46, 125, 50, 0.8) 70%, rgba(21, 86, 32, 0.95) 100%),
+                url('image/background/ChatGPT.png'); 
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        /* รูปโปรไฟล์หน้าแรก (วงกลม อยู่บนข้อความ) */
+        .home-profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        #home h1 {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        #home p {
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* --- 4. ส่วนเนื้อหาทั่วไป (Section) --- */
         section {
-            padding: 60px 20px;
-            max-width: 1000px;
+            padding: 80px 20px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         h2 {
             text-align: center;
             margin-bottom: 40px;
-            color: #2c3e50;
-            text-transform: uppercase;
-            border-bottom: 2px solid #f1c40f;
+            color: #155620;
+            border-bottom: 3px solid #f1c40f;
             display: inline-block;
             padding-bottom: 10px;
-            /* จัดกึ่งกลางเส้นใต้ */
-            position: relative; 
+            position: relative;
             left: 50%;
             transform: translateX(-50%);
         }
 
-        /* --- หน้าแรก  --- */
-        #home {
-            /* --- แก้ไขส่วนหน้าแรก (Hero Section) --- */
-            height: 100vh;
-            
-            /* เทคนิคซ้อนเลเยอร์พื้นหลัง */
-            background-image: 
-                /* เลเยอร์บน: ไล่แสงวงกลม ตรงกลางขาว(โปร่งใส) ไปหาขอบเขียวสด */
-                radial-gradient(circle, rgba(255,255,255,0.3) 10%, rgba(46, 125, 50, 0.95) 85%),
-                
-                /* เลเยอร์ล่าง: รูปพื้นหลัง (ให้คุณหารูปที่มีตะหลิว/กระทะ/เครื่องเทศมาใส่) */
-                url('chef-bg.jpg'); 
-
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            
-            /* จัดข้อความให้อยู่ตรงกลาง */
+        /* --- 5. เกี่ยวกับฉัน (About Section - รูปซ้าย ข้อความขวา) --- */
+        .about-content {
             display: flex;
-            flex-direction: column;
+            align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+            gap: 40px; /* ระยะห่างระหว่างรูปกับข้อความ */
+            flex-wrap: wrap; /* รองรับมือถือ */
             justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white; 
         }
 
-        /* --- แก้ไขส่วนหน้าแรก (Hero Section) --- */
-#home {
-    /* กำหนดความสูงให้เต็มหน้าจอ */
-    height: 100vh;
-    
-    /* ใส่รูปภาพเป็นพื้นหลัง */
-    /* เปลี่ยน 'chef-bg.jpg' เป็นชื่อไฟล์รูปภาพของคุณ */
-    background-image: url(image/background/ChatGPT.png);
-    
-    /* ให้รูปภาพขยายเต็มพื้นที่โดยไม่เสียสัดส่วน */
-    background-size: cover;
-    
-    /* จัดตำแหน่งรูปภาพให้อยู่ตรงกลาง */
-    background-position: center;
-    
-    /* ไม่ให้รูปภาพซ้ำกัน */
-    background-repeat: no-repeat;
-    
-    /* จัดข้อความให้อยู่ตรงกลาง */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    
-    /* เปลี่ยนสีข้อความให้เป็นสีเข้มเพื่อให้ตัดกับพื้นหลังสีอ่อน */
-    color: #2c3e50;
-        
+        .about-img-container {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
 
-        .about-text { flex: 2; }
-        .about-img { flex: 1; text-align: center; }
-        .about-img img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;  
+        .about-img-container img {
+            width: 250px; /* ขนาดรูปเล็กลงตามต้องการ */
+            height: 250px;
+            border-radius: 50%; /* ทรงกลม */
             object-fit: cover;
-            border: 5px solid #ecf0f1;
-        } 
-}
+            border: 5px solid #155620;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
 
-/* เพิ่มเงาให้ตัวหนังสืออ่านง่ายขึ้นบนพื้นหลังที่มีลวดลาย */
-#home h1, #home p {
-    /* เงาสีขาว ช่วยให้ตัวหนังสือเด่นชัดขึ้น */
-    text-shadow: 1px 1px 2px #ffffff;
-}
-        /* --- การศึกษา / ฝึกอบรม / ประสบการณ์  --- */
+        .about-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        /* --- 6. ทักษะ (Skills) --- */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: #e8f5e9;
+            color: #155620;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            border: 1px solid #c8e6c9;
+        }
+
+        /* --- 7. การ์ด (การศึกษา/ประสบการณ์) --- */
         .card-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -141,40 +153,40 @@
 
         .card {
             background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border-left: 5px solid #2c3e50;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-left: 6px solid #155620;
         }
 
-        .card h3 { margin-bottom: 10px; color: #2980b9; }
-        .date { color: #7f8c8d; font-size: 0.9rem; margin-bottom: 10px; display: block; }
+        .card h3 { color: #155620; margin-bottom: 10px; }
+        .date { color: #666; font-size: 0.9rem; margin-bottom: 10px; display: block; }
 
-        /* --- ผลงาน (Portfolio Grid) --- */
+        /* --- 8. ผลงาน (Portfolio) --- */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
 
         .portfolio-item {
             background: white;
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: 0.3s;
         }
 
         .portfolio-item:hover { transform: translateY(-5px); }
         .portfolio-item img { width: 100%; height: 200px; object-fit: cover; }
         .portfolio-info { padding: 15px; }
 
-        /* --- ส่วนท้าย  --- */
+        /* --- 9. ส่วนท้าย (Footer) --- */
         footer {
-            background: #2c3e50;
+            background: #155620;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
             margin-top: 50px;
         }
     </style>
@@ -191,7 +203,7 @@
     </nav>
 
     <header id="home">
-        <img src="image/background/profile.png" alt="เชฟมือพระกาฬ">
+        <img src="image/background/profile.png" alt="เชฟสุวิจักขณ์">
         <h1>สวัสดีครับ, ผม นายสุวิจักขณ์ โสภานะ</h1>
         <p>เชฟมือพระกาฬ</p>
     </header>
@@ -199,29 +211,26 @@
     <section id="about">
         <h2>เกี่ยวกับฉัน</h2>
         <div class="about-content">
-            <div class="about-img">
-                <img src="image/background/" alt="รูปโปรไฟล์">
+            <div class="about-img-container">
+                <img src="image/background/profile1.png" alt="รูปโปรไฟล์">
             </div>
             <div class="about-text">
-                 
-                <p>สวัสดีครับ ผมเป็นนักศึกษาจบใหม่จากคณะบริหารศาสตร์ ที่มีความหลงใหลในด้านการทำอาหาร ตัวผมนั้น......<br>
-                ขี้ลืมเป็นที่ 1 เฟรนลี่คือที่สุด ทำงานจนหัวหลุดยังไม่บ่นครับ~~...</p>
+                <p>สวัสดีครับ ผมเป็นนักศึกษาจากคณะบริหารศาสตร์ ที่มีความหลงใหลในด้านการทำอาหาร ตัวผมนั้น... ขี้ลืมเป็นที่ 1 เฟรนลี่คือที่สุด ทำงานจนหัวหลุดยังไม่บ่นครับ~~</p>
                 <br>
-                <p><strong>เป้าหมายการทำงาน:การหารายได้เพื่อส่งตัวเองเรียนไปเพิ่มประสบการณ์ทำอาหารให้อร่อยมากขึ้นเพราะผมถือคติว่า"คนกินมีรอยยิ้มผมก็ยิ้มตามแล้ว"</strong> ต้องการเรียนรู้สกิลและเทคนิคและประสบการณ์ในด้านอาหารให้มากขึ้น </p>
+                <p><strong>เป้าหมายการทำงาน:</strong> เพื่อหารายได้ส่งตัวเองเรียนและเพิ่มประสบการณ์ทำอาหารให้อร่อยมากขึ้น เพราะผมถือคติว่า <em>"คนกินมีรอยยิ้ม ผมก็ยิ้มตามแล้ว"</em></p>
             </div>
         </div>
     </section>
 
-    <section id="skills" style="background-color: #f9f9f9;">
+    <section id="skills" style="background-color: #fcfcfc;">
         <h2>ทักษะของฉัน</h2>
         <div class="skills-grid">
             <span class="skill-tag">Core Skills</span>
             <span class="skill-tag">Creativity & Adaptability</span>
-            <span class="skill-tag">Knowledge of health and food safety.</span>
-            <span class="skill-tag">English (Toeic -100)</span>
-            <span class="skill-tag">HTML/CSS</span>
+            <span class="skill-tag">Food Safety Knowledge</span>
+            <span class="skill-tag">HTML / CSS / Python</span>
             <span class="skill-tag">Problem Solving</span>
-            <span class="skill-tag">python</span>
+            <span class="skill-tag">England -100</span>
         </div>
     </section>
 
@@ -231,73 +240,72 @@
             <div class="card">
                 <h3>ปริญญาตรี คอมพิวเตอร์ธุรกิจ</h3>
                 <span class="date">2567 - 2571</span>
-                <p>มหาวิทยาลัย กาฬสินธุ์</p>
+                <p>มหาวิทยาลัยกาฬสินธุ์</p>
                 <p>เกรดเฉลี่ย (GPA): 3.45</p>
             </div>
             <div class="card">
                 <h3>มัธยมศึกษาตอนปลาย</h3>
                 <span class="date">2564 - 2566</span>
-                <p>โรงเรียน หนองชุมแสงวิทยาคม</p>
-                <p>สายวิทย์-คณิต</p>
+                <p>โรงเรียนหนองชุมแสงวิทยาคม (สายวิทย์-คณิต)</p>
             </div>
         </div>
     </section>
 
-    <section id="training" style="background-color: #f9f9f9;">
-        <h2>การฝึกอบรม & ประกาศนียบัตร</h2>
-        <div class="card-container">
-            <div class="card">
-                <h3>ชื่อคอร์สฝึกอบรม</h3>
-                <span class="date">มกราคม 2566</span>
-                <p>หน่วยงานที่จัด: [ชื่อหน่วยงาน]</p>
-                <p>รายละเอียด: เรียนรู้เกี่ยวกับ...</p>
-            </div>
-            <div class="card">
-                <h3>ชื่อคอร์สออนไลน์</h3>
-                <span class="date">ธันวาคม 2565</span>
-                <p>แพลตฟอร์ม: Coursera / Udemy</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience">
+    <section id="experience" style="background-color: #fcfcfc;">
         <h2>ประสบการณ์</h2>
         <div class="card-container">
             <div class="card">
                 <h3>นักศึกษาฝึกงาน คอนเทนต์ครีเอเตอร์</h3>
                 <span class="date">มิถุนายน - ตุลาคม 2570</span>
-                <p>บริษัท Royal Player</p>
-                <ul>
-                    <li>- รับผิดชอบงานด้าน...</li>
-                    <li>- ช่วยเหลือทีมในการ...</li>
-                    <li>- ประสบความสำเร็จในการทำโปรเจกต์...</li>
-                </ul>
+                <p>บริษัท Royal Player จำกัด (มหาชน)</p>
+                <p>รับผิดชอบงานสร้างสรรค์เนื้อหาและประสานงานทีม</p>
             </div>
-            </div>
+        </div>
     </section>
 
-    <section id="portfolio" style="background-color: #f9f9f9;">
+    <section id="portfolio">
         <h2>ผลงานของฉัน</h2>
         <div class="portfolio-grid">
             <div class="portfolio-item">
-                <img src="https://via.placeholder.com/300x200" alt="รูปผลงาน">
+                <img src="image/background/profile2.png" alt="ผลงาน 1"
+                style="width: 100%; height: 700px;object-fit:cover;">
                 <div class="portfolio-info">
-                    <h3>ชื่อโปรเจกต์ 1</h3>
-                    <p>คำอธิบายสั้นๆ เกี่ยวกับผลงานชิ้นนี้ ว่าทำอะไร แก้ปัญหาอะไร</p>
+                    <h3>เข้าร่วมอบรม อาชีพวิศวกรรมข้อมูล </h3>
+                    <p>ได้ผ่านการฝึกอบรม ด้วยระบบการเรียนรู้สมรรถนะบุคคล ตามมาตรฐานอาชีพและคุณวุฒิวิชาชีพในรูปแบบอิเล็กทรอนิกส์<br>
+                        สาขาวิชาชีพอุตสาหกรรมดิจิทัล สาขาวิทยาศาสตร์ข้อมูลอาชีพนักวิเคราะห์ข้อมูล ระดับ 3<br> 
+                        ให้ไว้ ณ วันที่ 14 ตุลาคม 2568</p>
                 </div>
             </div>
             <div class="portfolio-item">
-                <img src="https://via.placeholder.com/300x200" alt="รูปผลงาน">
+                <img src="image/background/profile4.png" alt="ผลงาน 2"
+                style="width: 100%; height: 700px;object-fit:cover;">
                 <div class="portfolio-info">
-                    <h3>ชื่อโปรเจกต์ 2</h3>
-                    <p>คำอธิบายสั้นๆ เกี่ยวกับผลงานชิ้นนี้</p>
+                    <h3>เข้าร่วมอบรม อาชีพวิศวกรรมข้อมูล </h3>
+                    <p>ได้ผ่านการฝึกอบรม ด้วยระบบการเรียนรู้สมรรถนะบุคคล ตามมาตรฐานอาชีพและคุณวุฒิวิชาชีพในรูปแบบอิเล็กทรอนิกส์<br>
+                        สาขาวิชาชีพอุตสาหกรรมดิจิทัล สาขาวิทยาศาสตร์ข้อมูลอาชีพนักวิเคราะห์ข้อมูล ระดับ 4<br> 
+                        ให้ไว้ ณ วันที่ 15 ตุลาคม 2568</p>
                 </div>
             </div>
-             <div class="portfolio-item">
-                <img src="https://via.placeholder.com/300x200" alt="รูปผลงาน">
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="image/background/profile3.png" alt="ผลงาน 3"
+                style="width: 100%; height: 700px;object-fit:cover;">
                 <div class="portfolio-info">
-                    <h3>ชื่อโปรเจกต์ 3</h3>
-                    <p>คำอธิบายสั้นๆ เกี่ยวกับผลงานชิ้นนี้</p>
+                    <h3>เข้าร่วมอบรม อาชีพวิศวกรรมข้อมูล </h3>
+                    <p>ได้ผ่านการฝึกอบรม ด้วยระบบการเรียนรู้สมรรถนะบุคคล ตามมาตรฐานอาชีพและคุณวุฒิวิชาชีพในรูปแบบอิเล็กทรอนิกส์<br>
+                        สาขาวิชาชีพอุตสาหกรรมดิจิทัล สาขาวิทยาศาสตร์ข้อมูลอาชีพนักวิเคราะห์ข้อมูล ระดับ 6<br> 
+                        ให้ไว้ ณ วันที่ 15 ตุลาคม 2568</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="image/background/profile5.png" alt="ผลงาน 4"
+                style="width: 100%; height: 390px;object-fit:cover;">
+                <div class="portfolio-info">
+                    <h3>เข้าร่วมอบรม Essential SQL for Everyone </h3>
+                    <p>ใบรับรองความสำเร็จ สถาบันการเข้าถึงแบบเปิด<br>
+                        สำเร็จหลักสูตรและได้รับเกรดผ่านในวิชา... SQL ที่จำเป็นสำหรับทุกคน<br> 
+                        ให้ไว้ ณ วันที่ 14 ตุลาคม 2568</p>
                 </div>
             </div>
         </div>
@@ -305,9 +313,9 @@
 
     <footer>
         <h3>ติดต่อฉัน</h3>
-        <p>เบอร์โทร: 08x-xxx-xxxx | อีเมล: yourname@email.com</p>
-        <p>&copy; 2024 Portfolio by [ชื่อของคุณ]</p>
+        <p>เบอร์โทร: 08x-xxx-xxxx | อีเมล: suwijak.sopana@email.com</p>
+        <p>&copy; 2026 Portfolio by นายสุวิจักขณ์ โสภานะ</p>
     </footer>
-a
+
 </body>
 </html>
